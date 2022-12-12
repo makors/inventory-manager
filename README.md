@@ -20,7 +20,8 @@
 ![Example](https://i.ibb.co/Y2sqC0h/image.png)  
 **The last step of this process is to get the credentials in a JSON format, which is used by the Inventory Manager software. After clicking done, you should be brought to the credtials screen, and if not click [here](https://console.cloud.google.com/apis/credentials) to go there. Under "Service accounts", you want to find the one you just created and click the edit icon under the actions tab (example below).**  
 ![Example](https://i.ibb.co/cDcMkpQ/image.png)  
-**Then at the top of the webpage, you want to click over to the "KEYS" tab. You then want to click "Add key", and then click "Create new key". Select the JSON format and click "Create", then a file download should start. You want to rename the file to "credentials.json" and save it in the folder called "tokens" where you initally download the Inventory Manager software. Now that that is done with, lets get onto Software setup.**
+**Then at the top of the webpage, you want to click over to the "KEYS" tab. You then want to click "Add key", and then click "Create new key". Select the JSON format and click "Create", then a file download should start. You want to rename the file to "credentials.json" and save it in the folder called "tokens" where you initally download the Inventory Manager software. Now that that is done with, lets get onto Software setup.**  
+![Example](https://i.ibb.co/6DQFDvq/image.png)
 
 # Software Setup 💾
 ### From here, getting the software setup is made to be easy!
