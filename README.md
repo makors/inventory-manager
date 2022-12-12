@@ -1,7 +1,7 @@
 # About 📜
 ### *A **simple** item manager for [Frozen Freebies](https://frozensoftware.com/), an Amazon auto freebie bot.*
 ### Download the app [here!](https://github.com/makors/inventory-manager/releases/download/cool/app.zip)
-#### This manager is **USER RUN**, meaning that you have to run the binary/python file on your server or home PC.
+#### This manager is **USER RUN**, meaning that you have to run the binary/python file on your server or home PC that the Frozen Freebies software is installed on.
 
 #### **Now, to the actual setup.**
 
