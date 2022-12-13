@@ -7,6 +7,7 @@ import gspread_formatting as gsf
 from flask import Flask, request
 import json
 import logging
+import requests
 
 # flask logging errors - remove for development
 log = logging.getLogger('werkzeug')
@@ -19,6 +20,8 @@ config.read('the.config')
 # read config and def vars
 user_email = config['USER']['email']
 sh_title = config['SHEET']['title']
+ntfyer = config['NTFY']['topic']
+ntfyme = config['NTFY']['confirm']
 
 # colorama fix
 just_fix_windows_console()
@@ -108,8 +111,8 @@ def next_available_row(sheet):
     str_list = list(filter(None, sheet.col_values(1)))
     return str(len(str_list)+1)
 
-def neww(jsoa):
-    data2 = json.dumps(jsoa)
+def send(data):
+    data2 = json.dumps(data)
     # Parse the JSON string into a Python dictionary
     data = json.loads(data2)
 
@@ -129,6 +132,21 @@ def neww(jsoa):
     ss.update_acell(f"E{next_row}", email)
     ss.update_acell(f"F{next_row}", mode)
 
+    # do the notification thing
+    if ntfyme == True:
+        # define vars and stuff
+        logo = "https://pbs.twimg.com/profile_images/1542644644982423553/huthtNbr_400x400.png"
+        url = f"https://ntfy.sh/{ntfyer}"
+        item = f"{title}?\Original Price: {orig} - Paid: {paid}\nAccount: {email}"
+        # post notification
+        requests.post(
+            url,
+            data=item.encode('utf-8'),
+            headers={ "Tags": "partying_face", "Priority": "4", "Title": "Successful Checkout 🎉".encode('utf-8'), "Icon": logo }
+        )
+    else:
+        return
+
 # flask app
 app = Flask(__name__)
 
@@ -137,7 +155,7 @@ def handle_json():
     # Get the JSON data from the request
     data = request.get_json()
     # Do something with the data
-    neww(data)
+    send(data)
     print(Fore.GREEN + f"Added item to spreadsheet! 🎉" + Style.RESET_ALL)
     return 'Success 🎉'
 

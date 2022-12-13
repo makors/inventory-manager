@@ -42,6 +42,16 @@ title = Inventory Manager
 **First, you are going to want to click the "Edit all" button at the top of the Frozen Freebies software. Then, you are going to want to click the "Advanced settings" option (example below). Next you are going to want to paste `http://localhost:8080/webhook` into the "Additional Success Webhook" field.**  
 ![Example](https://i.ibb.co/gVmDB4y/image.png)  
 
+# Notifications 🔔
+### To get this set up, you need the `ntfy` app on [iOS](https://apps.apple.com/us/app/ntfy/id1625396347) or [Android](https://play.google.com/store/apps/details?id=io.heckel.ntfy).
+#### **First, you are going to want to make a channel for your notifications, but keep in mind to make the name secure because *ANYONE* can see this. This can be done by clicking the plus in the top right and creating a new channel with a new channel name. That is basically it for this part. If you would like to have it on multiple devices, input the same channel name into that device too.**  
+**Secondly, you need to replace the `topic` variable in the `the.config` file. Replace `replace-this` with the topic, which would be the part *AFTER* the `ntfy.sh` URL.**
+```
+[NTFY]
+topic = replace-this
+```
+*If you wish for this feature to be disabled, set the `confirm` variable in the `the.config` file to `False` to stop **ALL** notifications.*
+
 # Final Setup / Notes 📄
 ### To run the main bot, open the `bot.exe` file in the directory where you downloaded this, which has to be run in the background.
 #### *The way to access the  Spreadsheet📃 is by clicking the link the bot will print out when it runs, or going to your [Google Drive Shared](https://drive.google.com/drive/u/0/shared-with-me) and finding the spreadsheet manually. API may also take a few minutes to go through Google servers.*
